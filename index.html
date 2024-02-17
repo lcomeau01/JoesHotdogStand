@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Joe's Hotdogs</title>
+        <link rel="icon" type="image/x-icon" href="images/logo.png">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+   <section class="text-box">
+        <h1>Joe's Hotdog Stand</h1>
+        <h2> ORDER SUMMARY </h2>
+        <section class="items-ordered">
+            <div class="items">
+                <p><span id="num1">0</span> Hotdogs </p>
+                <p><span id="num2">0</span> Fries </p>
+                <p><span id="num3">0</span> Sodas </p>
+                <hr> 
+                <p class="labels"> Total (before tax): </p>
+                <p class="labels"> Discount (if applicable): </p>
+                <p class="labels"> Total After Discount: </p>
+                <p class="labels"> Taxes: </p>
+                <section class="finalTotal">
+                    <p> Total (after tax): </p>
+                </section>  
+            </div>
+            <div class="quantity">
+                <p id="dogTotal" class="prices"> $ 0 </p>
+                <p id="fryTotal" class="prices"> $ 0 </p>
+                <p id="sodaTotal" class="prices"> $ 0 </p>
+                <hr> 
+                <p id="total" class="prices"> $ 0 </p>
+                <p id="discount" class="prices"> $ 0.00 </p>
+                <p id="discountTotal" class="prices"> $ 0 </p>
+                <p id="taxes" class="prices"> $ 0 </p>
+                <section class="finalTotal">
+                    <p id="taxTotal"> $ 0 </p>
+                </section>  
+            </div>
+        </section>
+    </section>
+</section>
+</body>
+<!-- ****************************JavaScript******************************* -->
+<script>
+const dogPrice = 4.65; 
+const fryPrice = 3.75; 
+const sodaPrice = 1.89; 
+
+// wait for page to fully load in before we do anything.
+document.addEventListener("DOMContentLoaded", function(event){
+        numDogs = parseInt(prompt("How Many Hotdogs Would You Like ?", "0")); 
+    document.getElementById("num1").innerText = numDogs; 
+    numFries = parseInt(prompt("How Many Fries Would You Like ?", "0")); 
+    document.getElementById("num2").innerText = numFries; 
+    numSodas = parseInt(prompt("How Many Sodas Would You Like ?", "0")); 
+    document.getElementById("num3").innerText = numSodas;
+
+    function showMoney(amount) { 
+        //round to two decimal places 
+        amount = (Math.round(amount * 100) / 100); 
+
+        amountString = amount.toString(); 
+        if(amountString.indexOf('.') == -1) { 
+            // if there are no decimal spots, add zeros 
+            amountString = "$ " + amountString + ".00"; 
+        }
+        else if ((amountString.length - amountString.indexOf('.') == 2)) {
+            // if there is only one decimal spot add a zero 
+            amountString = "$ " + amountString + "0"; 
+        }
+        else { 
+            // there are two decimal places 
+            amountString = "$ " + amountString; 
+        }
+
+        return amountString; 
+    }; 
+
+    totalDogs = (numDogs * dogPrice); 
+    totalFries = (numFries * fryPrice); 
+    totalSodas = (numSodas * sodaPrice); 
+
+    document.getElementById("dogTotal").innerHTML = showMoney(totalDogs); 
+    document.getElementById("fryTotal").innerHTML = showMoney(totalFries); 
+    document.getElementById("sodaTotal").innerHTML = showMoney(totalSodas); 
+
+    totalNum = (parseFloat(totalDogs) + parseFloat(totalFries) + parseFloat(totalSodas)); 
+    document.getElementById("total").innerHTML = showMoney(totalNum); 
+
+    if (totalNum >= 25.00) { 
+        discount = totalNum * 0.1; 
+    }
+    else { 
+        discount = 0; 
+    }
+    totalNum = totalNum - discount; 
+
+    document.getElementById("discount").innerHTML = " - " + showMoney(discount); 
+    document.getElementById("discountTotal").innerHTML = showMoney(totalNum); 
+
+    taxes = (totalNum * 0.0625); 
+    document.getElementById("taxes").innerHTML = showMoney(taxes); 
+    taxTotal = showMoney((totalNum + taxes)); 
+    document.getElementById("taxTotal").innerHTML = taxTotal; 
+});
+</script>
+</html>
