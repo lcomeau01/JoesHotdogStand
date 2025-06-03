@@ -13,7 +13,7 @@
 
 When you open the page, you'll be prompted to enter the quantity of each item you'd like to order. The site will then display a formatted receipt showing item totals and overall cost.
 
----
+
 
 ## File Overview
 
