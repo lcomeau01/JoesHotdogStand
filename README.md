@@ -1,9 +1,27 @@
-# JoesHotdogStand
-A Mock Website to practice the basics of Javascript. The website is for Joe's Hotdog Stand: A prompt will ask you how many hotdogs, fries, and sodas you want. Then the website will display your receipt information. 
+# 🌭 Joe's Hotdog Stand
 
-## Index.Html 
-The html file for the main page (the only page). This includes all of the html for the site, and the <script></script> module, which contains all of the javascript. 
-This includes a function called showMoney(), which takes in a float integer and returns a string with the number rounded to two decimal points. 
+**Joe's Hotdog Stand** is a mock website project built to practice the fundamentals of **JavaScript**, **HTML**, and **CSS**.
 
-## Styles.css 
-The stylesheet for Index.html
+## Features
+
+- Prompt-based input for ordering hotdogs, fries, and sodas  
+- Automatic calculation and display of a receipt  
+- Rounded pricing using a custom JavaScript function  
+- Simple, clean layout styled with CSS  
+
+## How It Works
+
+When you open the page, you'll be prompted to enter the quantity of each item you'd like to order. The site will then display a formatted receipt showing item totals and overall cost.
+
+---
+
+## File Overview
+
+### `index.html`: 
+- The main (and only) HTML page of the website  
+- Contains the overall structure of the site  
+- Includes an embedded `<script>` with all JavaScript logic  
+- Features a `showMoney()` function that formats a float integer to two decimal places (e.g., `3.5` → `$3.50`) and then converts that integer into a string. 
+
+### `styles.css`: 
+- Handles layout, fonts, spacing, and general styling
